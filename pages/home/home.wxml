@@ -1,0 +1,85 @@
+<!--pages/home/home.wxml-->
+
+
+<!-- 轮播图 -->
+<view>
+  <swiper class="carousel"
+        autoplay="true" circular="true" interval="2000" duration="500" >
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item >
+            <image src="/static/hospital/{{item}}.webp" ></image>
+          </swiper-item>
+        </block>
+    </swiper>
+</view>
+
+<!-- 公告 -->
+<view class='notice'>
+    <image class='icon' src="/static/icon/喇叭.svg"></image>
+    <text class='font30' style="color: red;"> 公告:</text>
+   <view class="notice-box">
+        <view class="left-text"></view>
+        <view class='content-box'>
+            <view class='content-text' animation="{{animationData}}"><text id="text">{{text}}</text></view>
+        </view>
+        <view class="right-text"></view>
+   </view>
+</view>
+<!-- 公告 end -->
+
+<!-- 门诊 -->
+<view class=" common clinic">
+    <view class="width90 d-row padding-10">
+        <image class='icon margin-20' src="/static/icon/doctor.png"></image>
+        <view class="font40 margin-top-10">门诊</view>
+    </view>
+    <view class="width90 d-f-wrap d-row  margin-center padding-top-10 text-center">
+        <view class="play-title"> 
+            <text class="font30">预约挂号</text> <text class="font24 gray3">\n快人一步</text> 
+        </view>
+        <view class="play-title"> 
+            <text class="font30">排队查询</text> <text class="font24 gray3">\n查询进度</text> 
+        </view>
+        <view class="play-title"> 
+            <text class="font30">门诊报告</text> <text class="font24 gray3">\n查看详情</text> 
+        </view>
+        <view class="play-title"> 
+            <text class="font30">核算检测</text> <text class="font24 gray3">\n快速通道</text> 
+        </view>
+        
+        <view class="play-title "> 
+            <text class="font30 gray3">体检申请</text> <text class="font24 gray3">\n开发中</text> 
+        </view>
+    </view>
+
+</view>
+<!-- 住院 -->
+<view class="common hospital">
+    <view class="width90 d-row  ">
+        <image class='icon margin-20' src="/static/icon/bed.png"></image>
+        <view class="font40 margin-top-10">住院</view>
+    </view>
+
+    <view class="width90 d-f-wrap d-row  margin-center padding-top-10 text-center">
+        <view class="play-title"> 
+            <text class="font30">住院申请</text> <text class="font24 gray3">\n填写资料</text> 
+        </view>
+        <view class="play-title"> 
+            <text class="font30">床位查询</text> <text class="font24 gray3">\n当前床位</text> 
+        </view>
+        <view class="play-title"> 
+            <text class="font30">住院报告</text> <text class="font24 gray3">\n查看详情</text> 
+        </view>
+
+        <view class="play-title"> 
+            <text class="font30">住院缴费</text> <text class="font24 gray3">\n快速通道</text> 
+        </view>
+    </view>
+
+</view>
+
+
+
+
+
+

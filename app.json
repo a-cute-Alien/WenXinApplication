@@ -1,0 +1,39 @@
+{
+    "pages": [
+        "pages/home/home",
+        "pages/index/index",
+        "pages/me/me"
+    ],
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        }
+    },
+    "window": {
+        "enablePullDownRefresh": true,
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "selectedColor": "#31CFBE",
+        "borderStyle": "white",
+        "list": [
+            {
+                "iconPath": "/static/icon/shouye.png",
+                "selectedIconPath": "/static/icon/shouye_s.png",
+                "pagePath": "pages/home/home",
+                "text": "首页"
+            },
+            {
+                "iconPath": "/static/icon/wode.png",
+                "selectedIconPath": "/static/icon/wode_s.png",
+                "pagePath": "pages/me/me",
+                "text": "我的"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}
