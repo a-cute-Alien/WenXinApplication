@@ -14,20 +14,25 @@ page{
     margin-top: 10rpx;
     border-radius: 30rpx;
 }
+.icon2{
+    height: 100rpx; 
+    width: 100rpx;
+    margin-bottom: 10rpx;
+}
 .clinic{
-    height: 400rpx;
+    height: 500rpx;
 }
 .hospital{
-    height: 400rpx;
+    height: 500rpx;
 }
 
 .play-title{
     width: 180rpx;
-    height: 86rpx;
-    padding: 10rpx;
+    height: 150rpx;
+    /* padding: 10rpx; */
     border-radius: 40rpx;
-    border:1rpx solid #247D6C;
-    font-size: 30rpx;
+    /* border:1rpx solid #13da55; */
+    /* font-size: 30rpx; */
     margin:5px
 }
 

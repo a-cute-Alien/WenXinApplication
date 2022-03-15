@@ -45,14 +45,15 @@ App({
   onShow (options) {
     // Do something when show.
     // 显示 tabBar 某一项的右上角的红点
-    wx.showTabBarRedDot({
-      index:0
-    })
+    
+    // wx.showTabBarRedDot({
+    //   index:0
+    // })
 
     // 为 tabBar 某一项的右上角添加文本
     wx.setTabBarBadge({
       index:1,
-      text:'666'
+      // text:''
     })
 
   },

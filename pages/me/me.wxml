@@ -1,80 +1,40 @@
-<!--me/me.wxml-->
-<view class="content">
-    <!-- 1 个人信息 -->
-    <view class="width100 bg">
-
-        <!-- 1.1 头像 -->
-        <view class="width85 d-row d-jc-between d-ai-centen margin-60">
-            <view class=" d-ai-centen height100">
-                <image class="head-img" src="/static/head.png"></image>
-                <view class="text-center"> 未登陆 </view>
-            </view>
-            <view class="d-row d-ai-end" style="height: 200rpx;" bindtap="homeClick">
-                <span>\n\n详情信息</span>
-                <i class="iconfont icon-youjiantou1" style="position: relative;top: 4rpx;"></i>
-            </view>
-        </view>
+<!-- 1 个人信息 -->
+<view class="width100 bg d-clo d-jc-centen d-ai-centen text-center">
+    <view>
+        <image class="jiankangka" src="/static/jiankangka.png"></image>
     </view>
-
-    <!-- 2 收藏 -->
-    <view class="collection d-clo d-jc-centen d-ai-centen">
-        <view class="d-row d-jc-around d-ai-centen font30" style="width:600rpx">
-            <view class="text-center"> 
-                <image class="coll-img" src="/static/shoucang.png"></image> 
-                <text> \n 我的收藏 </text> 
-            </view>
-            <view class="text-center"> 
-                <image class="coll-img" src="/static/dingdan.png"></image> 
-                <text> \n 我的订单 </text> 
-            </view>
-            <view class="text-center"> 
-                <image class="coll-img" src="/static/zuji.png"></image> 
-                <text> \n 我的足迹 </text> 
-            </view>
-        </view>
-    </view>
-
-    <!-- 各种图标 -->
-    <view class="collection" style="height:370rpx !important;">   
-        <view class="d-row d-jc-between margin-center" style="padding:24rpx;width:580rpx;flex-wrap:wrap;">
-            <view class="details"> 
-                <i class="iconfont icon-biji1"></i> 
-                <text>\n内容管理<text class="font24 gray2">\n途中故事</text>
-                </text>
-            </view>
-            <view class="details"> 
-                <i class="iconfont icon-fapiao2"></i>
-                <text>\n有奖反馈<text class="font24 gray2">\n满意调研</text>
-                </text>
-            </view>
-            <view class="details"> 
-                <i class="iconfont icon-biji2"></i> 
-                <text>\n常用信息<text class="font24 gray2">\n实名认证</text>
-                </text>
-            </view>
-            <view class="details"> 
-                <i class="iconfont icon-fapiao1"></i>
-                <text>\n开具发票<text class="font24 gray2">\n历史发票</text>
-                </text>
-            </view>
-            <view class="details"> 
-                <i class="iconfont icon-kefu2"></i>
-                <text>\n在线客服<text class="font24 gray2">\n24小时服务</text>
-                </text>
-            </view>
-            <view class="details"> 
-                <i class="iconfont icon-kabao1"></i>
-                <text>\n卡包<text class="font24 gray2">\n会员卡</text>
-                </text>
-            </view>
-        </view>
-    </view>
-
-    
-
-
+    <text id="idcard" class="font30" style="color: red;margin-top: -150rpx;">\n未登陆</text>
 </view>
 
+<!-- 2 收藏 -->
+<view class="width100 height180">
+    <view class=" d-clo d-jc-centen d-ai-centen">
+        <view class="collection d-row d-jc-around d-ai-centen font30">
+            <view class="text-center">
+                <image class="coll-img" src="/static/shoucang.png"></image>
+                <text> \n我的收藏 </text>
+            </view>
+            <view class="text-center">
+                <image class="coll-img" src="/static/dingdan.png"></image>
+                <text> \n我的订单 </text>
+            </view>
+            <view class="text-center">
+                <image class="coll-img" src="/static/zuji.png"></image>
+                <text> \n我的缴费 </text>
+            </view>
+        </view>
+    </view>
+</view>
 
-
-
+<!-- 各种图标 -->
+<view class="width100 height400">
+    <view class="details">
+        <text>\n我的信息</text>
+    </view>
+    <view class="details">
+        <text>\n挂号记录</text>
+    </view>
+    <view class="details">
+        <text>\n注销登陆</text>
+    </view>
+</view>

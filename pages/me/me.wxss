@@ -2,45 +2,19 @@
 page {
     background-color: #eeeeee
 }
-
-.head-img{
-    width: 200rpx;
-    height: 200rpx;
-}
-
 /* 头部背景 */
 .bg{
     height: 500rpx;
     color: #ffffff;
-    background-color: #247D6C;
+    background-color: #feffff;
     border-radius: 0px 0px 18px 18px;
 }
 
-/* 打卡 */
-.clock-in{
-    height: 56rpx;
-    width: 178rpx;
-    color: #000000;
-    line-height: 56rpx;
-    border-radius: 40rpx;
-    background-color: #ffffff;
-
-    position: relative;
-    top: 16rpx;
-}
-.ci-active{
-    background-color: #FFDD3E;
-}
-
-
 /* 收藏 */
 .collection{
-    position: relative;
-    top: -36rpx;
-    margin-bottom: 30rpx;
-
-    width: 686rpx;
-    height: 168rpx;
+    margin-top: 30rpx;
+    width: 95%;
+    height: 150rpx;
     background-color: #ffffff;
     border-radius: 10rpx;
 }
@@ -51,11 +25,18 @@ page {
 
 /* 各种图标详情 */
 .details{
-    width: 160rpx;
-    height: 180rpx;
-    text-align: center;
+    height: 120rpx;
+    text-align:center;
+    background-color: #ffffff;
+    border:1rpx solid #eeeeee;
+    margin: 20rpx;
+    border-radius: 10rpx;
 }
-.details-img{
-    width: 60rpx;
-    height: 60rpx;
+.jiankangka{
+    width: 600rpx;
+    height: 400rpx;
+    border-radius: 30rpx;
+    /* margin-top: 50rpx; */
+    /* position: relative;
+    left: 10%; */
 }
