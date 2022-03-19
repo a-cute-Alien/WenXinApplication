@@ -34,7 +34,7 @@
         <view class="font40 margin-top-10">门诊</view>
     </view>
     <view class="width90 d-f-wrap d-row d-jc-between margin-center padding-top-10 text-center">
-        <view class="play-title d-clo d-ai-centen"> 
+        <view class="play-title d-clo d-ai-centen" data-url="/pages/register/select" bindtap="navigateTo"> 
             <image class="icon2" src="/static/icon/guahao.png"></image>
             <text class="font34">预约挂号</text> 
         </view>

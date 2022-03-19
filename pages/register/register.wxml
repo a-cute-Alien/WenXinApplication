@@ -1,0 +1,12 @@
+<!--pages/register/register.wxml-->
+
+<van-collapse accordion value="{{ activeName }}" bind:change="onChange" bind:open="onOpen">
+    <van-collapse-item wx:for="{{doctors}}" wx:key="doctorId" title="{{item.name}}" name="{{index}}">
+        <view style="display:flex; flex-direction:column; height: 150px;margin-bottom: 10px;">
+            <view style="background-color: #F1F1F1; flex: 1;"></view>
+            <view style="background-color: #E6E6E6; flex: 1;"></view>
+        </view>
+    </van-collapse-item>
+</van-collapse>
+
+

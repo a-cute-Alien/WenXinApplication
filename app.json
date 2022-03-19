@@ -1,7 +1,11 @@
 {
     "pages": [
+        
         "pages/home/home",
-        "pages/me/me"
+        "pages/me/me",
+        "pages/register/select",
+        "pages/register/register"
+        
     ],
     "permission": {
         "scope.userLocation": {
@@ -33,6 +37,12 @@
             }
         ]
     },
-    "style": "v2",
-    "sitemapLocation": "sitemap.json"
+    "sitemapLocation": "sitemap.json",
+    "usingComponents": {
+        "van-tree-select": "@vant/weapp/tree-select/index",
+        "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+        "van-popup": "@vant/weapp/popup/index",
+        "van-collapse": "@vant/weapp/collapse/index",
+        "van-collapse-item": "@vant/weapp/collapse-item/index"
+    }
 }

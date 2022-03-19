@@ -11,11 +11,18 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         console.log(res.code)
+        let cookie = wx.getStorageSync('uuid');//取出Cookie
+        console.log(cookie);
         wx.request({
-          url: 'http://127.0.0.1:8080/login',
-          method: 'get',
+          url: 'http://127.0.0.1/login',
+          method: 'post',
+          header:{'content-type':'application/x-www-form-urlencoded',
+                  'cookie':cookie},
           data:{'js_code':res.code},
           success:function (res){
+            if (res && res.header && res.header['Set-Cookie']) {
+              wx.setStorageSync('uuid', res.header['Set-Cookie']);   //保存Cookie到Storage
+            }     
             console.log(res)
           }
         })

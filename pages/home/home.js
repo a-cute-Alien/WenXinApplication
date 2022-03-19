@@ -6,14 +6,19 @@ Page({
    */
   data: {
     background: [1,2,3,4,5,6,7,8],
-    text: "1.【评分标准】页可以查看不同年龄段的评分标准，通过首页选择对应的性别、类别和年龄。2.【单项成绩】页包含了详细的单项打分情况及成绩雷达图，直观地看出自己的弱项和强项。",
+    text: " 欢迎前往我医院就诊，请注意佩戴口罩。",
     animation: null,
     timer: null,
     duration: 0,
     textWidth: 0,
     wrapWidth: 0
   },
-
+  navigateTo: function (e){
+    console.log(e.currentTarget.dataset)
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
