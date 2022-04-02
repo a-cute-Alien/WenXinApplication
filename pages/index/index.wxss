@@ -1,0 +1,39 @@
+/* pages/home/home.wxss */
+page{
+    background-color: #eeeeee;
+}
+/* 轮播图 */
+.carousel,image{
+    width: 100%;
+    height: 500rpx;
+}  
+/* 卡片样式 */
+.card{
+    width: 100%;
+    background-color: #ffffff;
+    margin-top: 10rpx;
+    padding-bottom: 20rpx;
+    border-radius: 30rpx;
+}
+.icon{
+    height: 40rpx; 
+    width: 40rpx;
+    margin-bottom: 10rpx;
+}
+.icon2{
+    height: 100rpx; 
+    width: 100rpx;
+    margin-bottom: 10rpx;
+}
+
+.play-title{
+    width: 180rpx;
+    height: 150rpx;
+    margin:10rpx;
+    padding: 10rpx;
+    border-radius: 20rpx;
+    
+}
+.selected{
+    background-color: #eeeeee;
+}

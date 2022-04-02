@@ -1,0 +1,81 @@
+<!--pages/home/home.wxml-->
+
+
+<!-- 轮播图 -->
+<view>
+    <swiper class="carousel" autoplay="true" circular="true" interval="2000" duration="500">
+        <block wx:for="{{background}}" wx:key="*this">
+            <swiper-item>
+                <image src="/static/hospital/{{item}}.webp"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+
+<!-- 公告 -->
+
+<!-- closeable 模式，在右侧显示关闭按钮 -->
+<van-notice-bar left-icon="volume-o" mode="closeable" text="{{text}}" scrollable="true" />
+<!-- 公告 end -->
+
+<!-- 门诊 -->
+<view class=" card">
+    <view class="width90 d-row padding-10">
+        <image class='icon margin-20' src="/static/icon/doctor.png"></image>
+        <view class="font40 margin-top-10">门诊</view>
+    </view>
+    <view class="width90 d-f-wrap d-row d-jc-between margin-center padding-top-10 text-center">
+        <view class='play-title d-clo d-ai-centen {{ selected == 1 ? "selected":" "}}'
+         data-url="/pages/register/select-arrangement" 
+         data-id="1"
+         bindtap="navigateTo">
+            <image class="icon2" src="/static/icon/guahao.png"></image>
+            <text class="font34">预约挂号</text>
+        </view>
+        <view class="play-title d-clo d-ai-centen">
+            <image class="icon2" src="/static/icon/paidui.png"></image>
+            <text class="font34">排队查询</text>
+        </view>
+        <view class="play-title d-clo d-ai-centen">
+            <image class="icon2" src="/static/icon/jiaofei1.png"></image>
+            <text class="font34">门诊缴费</text>
+        </view>
+
+    </view>
+
+</view>
+<!-- 住院 -->
+<view class="card">
+    <view class="width90 d-row  ">
+        <image class='icon margin-20' src="/static/icon/bed.png"></image>
+        <view class="font40 margin-top-10">住院</view>
+    </view>
+    <view class="width90 d-f-wrap d-row d-jc-between margin-center padding-top-10 text-center">
+        <view class="play-title d-clo d-ai-centen">
+            <image class="icon2" src="/static/icon/chaxun.png"></image>
+            <text class="font34">床位查询</text>
+        </view>
+        <view class="play-title d-clo d-ai-centen">
+            <image class="icon2" src="/static/icon/zhuyuan.png"></image>
+            <text class="font34">住院申请</text>
+        </view>
+        <view class="play-title d-clo d-ai-centen">
+            <image class="icon2" src="/static/icon/jiaofei1.png"></image>
+            <text class="font34">住院缴费</text>
+        </view>
+        <view class="play-title d-clo d-ai-centen">
+            <image class="icon2" src="/static/icon/baogao.png"></image>
+            <text class="font34">住院报告</text>
+        </view>
+        <view class="play-title d-clo d-ai-centen">
+            <image class="icon2" src="/static/icon/tijian.png"></image>
+            <text class="font34 gray3">体检申请</text>
+        </view>
+        <view class="play-title d-clo d-ai-centen">
+            <image class="icon2" src="/static/icon/hesuan.png"></image>
+            <text class="font34 gray3">核酸检测</text>
+        </view>
+    </view>
+</view>
+<!-- 退出小程序提示 -->
+<van-dialog id="van-dialog" />

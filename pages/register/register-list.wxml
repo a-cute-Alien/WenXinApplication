@@ -1,0 +1,6 @@
+<!--pages/register/list.wxml-->
+<view class="list-container">
+    <van-cell-group wx:for="{{registers}}" wx:key="{{item.registerId}}" inset class="list-group">
+        <van-cell center  title="{{item.doctorName}}" value="{{item.status}}" label="预约时间:{{item.date}}" border="{{ true }}" />
+    </van-cell-group>
+</view>

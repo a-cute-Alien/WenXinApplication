@@ -1,0 +1,9 @@
+<!--pages/register.wxml-->
+<view>
+  <van-tree-select items="{{ depts }}" main-active-index="{{ mainActiveIndex }}" active-id="{{ activeId }}" height="{{winHight}}" bind:click-nav="onClickNav" bind:click-item="onClickItem" style="height: max-content;" />
+
+  <!-- <van-cell title="展示弹出层" is-link bind:click="showPopup" /> -->
+  <van-popup show="{{ show }}" bind:close="onClose" position="bottom">
+    <van-datetime-picker type="date" value="{{ currentDate }}" bind:confirm="toArrangement" bind:cancel="closeCalendar" min-date="{{ minDate }}" formatter="{{ formatter }}" />
+  </van-popup>
+</view>

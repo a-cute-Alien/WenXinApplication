@@ -1,14 +1,14 @@
-<!-- 1 个人信息 -->
+<!-- 个人健康卡 -->
 <view class="width100 bg d-clo d-jc-centen d-ai-centen text-center">
     <view>
         <image class="jiankangka" src="/static/jiankangka.png"></image>
     </view>
-    <text id="idcard" class="font30" style="color: red;margin-top: -150rpx;">\n未登陆</text>
+    <text wx:if="{{isLogin}}"  class = "bg-text" >{{userInfo.name}}\n\n{{userInfo.id}}</text>
+    <text wx:else="{{isLogin}}" class = "bg-text" data-url="/pages/user/info" bindtap="navigateTo">未登记(点击完善信息)</text>
 </view>
 
-<!-- 2 收藏 -->
-<view class="width100 height180">
-    <view class=" d-clo d-jc-centen d-ai-centen">
+<!-- 横向图标 -->
+<view class=" width100 height200  d-clo d-ai-centen d-jc-centen">
         <view class="collection d-row d-jc-around d-ai-centen font30">
             <view class="text-center">
                 <image class="coll-img" src="/static/shoucang.png"></image>
@@ -23,18 +23,18 @@
                 <text> \n我的缴费 </text>
             </view>
         </view>
-    </view>
 </view>
 
-<!-- 各种图标 -->
+<!-- 列表 -->
 <view class="width100 height400">
-    <view class="details">
-        <text>\n我的信息</text>
+    <view class="details" data-url="/pages/user/info" bindtap="navigateTo">
+        <text>我的信息</text>
     </view>
     <view class="details">
-        <text>\n挂号记录</text>
+        <text>挂号记录</text>
     </view>
-    <view class="details">
-        <text>\n注销登陆</text>
+    <view class="details" bindtap="logout">
+        <text class="color-red">注销信息</text>
     </view>
 </view>
+<van-dialog id="van-dialog" />

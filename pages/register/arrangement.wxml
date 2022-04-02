@@ -1,0 +1,18 @@
+<!--pages/register/register.wxml-->
+
+<van-collapse accordion value="{{ activeName }}" bind:change="onChange" bind:open="onOpen">
+<view wx:for="{{doctors}}" wx:key="doctorId" wx:for-item="doctor" wx:for-index="di" class="d-row d-ai-centen">
+    <image src="{{doctor.img}}" style="height: 100rpx; width: 10%; margin-left: 10px;"></image>
+    <van-collapse-item  title="{{doctor.name}}" name="{{di}}" size="large" class="width90">
+        <view class="list-container">
+            <view wx:for="{{doctor.registers}}" wx:key="recordId" wx:for-item="register" wx:for-index="ri" class="list-item" data-id = "{{register.recordId}}" bindtap="register" >
+            时间段:{{register.time}}:00  剩余预约数:<text style="color: red;">{{register.num}}</text>
+            </view>
+        </view>
+    </van-collapse-item>
+</view>
+
+</van-collapse>
+<van-dialog id="van-dialog" />
+
+

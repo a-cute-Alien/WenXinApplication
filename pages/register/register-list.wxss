@@ -1,0 +1,15 @@
+/* pages/register/list.wxss */
+page{
+    background-color: #eeeeee;
+}
+.list-container{
+    margin-top: 20rpx;
+    border-radius: 30rpx;
+    width: 100%;
+}
+.list-group{
+    width: 100%;
+}
+view .van-cell__value{
+    color: red;
+}

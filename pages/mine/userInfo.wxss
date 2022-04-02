@@ -1,0 +1,57 @@
+/* pages/user/info.wxss */
+
+.field-form{
+    border: solid 1rpx white ;
+    border-radius: 0rpx 0rpx 30rpx 30rpx;
+    background-color: white;
+    padding-bottom: 100rpx;
+    padding-top: 50rpx;
+}
+.van-cell{
+    margin-top: 40rpx; 
+    margin-bottom: 40rpx;
+}
+.radio-container{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 10rpx 0rpx 10rpx 0rpx;
+}
+.van-field__label{
+    font-size: 35rpx;
+}
+.radio-text{
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-align: center;
+    color: #646566;
+    font-size: 35rpx;
+}
+.comform{
+    background-color: #fff;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    border-radius: 30rpx 30rpx 0 0;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+}
+.button{
+
+    width: 45%;
+    padding: 10rpx;
+    /* height: 100rpx; */
+    border-radius: 30rpx;
+    font-size: 37rpx;
+}
+page{
+    background-color: #eeeeee;
+    
+}

@@ -1,11 +1,12 @@
 {
     "pages": [
         
-        "pages/home/home",
-        "pages/me/me",
-        "pages/register/select",
-        "pages/register/register"
-        
+        "pages/index/index",
+        "pages/mine/mine",
+        "pages/mine/userInfo",
+        "pages/register/select-arrangement",
+        "pages/register/arrangement",
+        "pages/register/register-list"
     ],
     "permission": {
         "scope.userLocation": {
@@ -26,13 +27,13 @@
             {
                 "iconPath": "/static/icon/shouye.png",
                 "selectedIconPath": "/static/icon/shouye_s.png",
-                "pagePath": "pages/home/home",
+                "pagePath": "pages/index/index",
                 "text": "首页"
             },
             {
                 "iconPath": "/static/icon/wode.png",
                 "selectedIconPath": "/static/icon/wode_s.png",
-                "pagePath": "pages/me/me",
+                "pagePath": "pages/mine/mine",
                 "text": "我的"
             }
         ]
@@ -40,9 +41,19 @@
     "sitemapLocation": "sitemap.json",
     "usingComponents": {
         "van-tree-select": "@vant/weapp/tree-select/index",
+        "van-notice-bar": "@vant/weapp/notice-bar/index",
         "van-datetime-picker": "@vant/weapp/datetime-picker/index",
         "van-popup": "@vant/weapp/popup/index",
         "van-collapse": "@vant/weapp/collapse/index",
-        "van-collapse-item": "@vant/weapp/collapse-item/index"
+        "van-collapse-item": "@vant/weapp/collapse-item/index",
+        "van-dialog": "@vant/weapp/dialog/index",
+        "van-icon": "@vant/weapp/icon/index",
+        "van-field": "@vant/weapp/field/index",
+        "van-radio": "@vant/weapp/radio/index",
+        "van-radio-group": "@vant/weapp/radio-group/index",
+        "van-button": "@vant/weapp/button/index",
+        "van-toast": "@vant/weapp/toast/index",
+        "van-cell": "@vant/weapp/cell/index",
+        "van-cell-group": "@vant/weapp/cell-group/index"
     }
 }

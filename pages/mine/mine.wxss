@@ -1,0 +1,49 @@
+/* me/me.wxss */
+page {
+    background-color: #eeeeee
+}
+/* 头部背景 */
+.bg{
+    height: 500rpx;
+    color: #ffffff;
+    background-color: #f8f8f8;
+    border-radius: 0px 0px 18px 18px;
+    padding-bottom: 50rpx;
+}
+.jiankangka{
+    width: 600rpx;
+    height: 400rpx;
+    border-radius: 30rpx;
+}
+.bg-text{
+    color: red;
+    font-size: 35rpx;
+    margin-top: -250rpx;
+    margin-bottom: 100rpx;
+}
+
+/* 图标容器 */
+.collection{
+    margin-top: 30rpx;
+    width: 95%;
+    height: 200rpx;
+    background-color: #ffffff;
+    border-radius: 30rpx;
+}
+/* 图标 */
+.coll-img{
+    width: 66rpx;
+    height: 66rpx;
+}
+
+.details{
+    display: flex;
+    height: 110rpx;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+    background-color: #ffffff;
+    border:1rpx solid #eeeeee;
+    margin: 20rpx 15rpx 0rpx 15rpx;
+    border-radius: 30rpx;
+}
