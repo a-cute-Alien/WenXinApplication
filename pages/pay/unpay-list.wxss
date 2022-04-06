@@ -1,0 +1,19 @@
+/* pages/pay/pay-list.wxss */
+page{
+    width: 100%;
+}
+/* van-checkbox__label{
+    width: 100%;
+}
+van-checkbox__label--right{
+    width: 100%;
+} */
+van-card{
+    width: 88%;
+} 
+/* .list-item{
+    width: 88%;
+    height: 100rpx;
+    background-color: #fafafa;
+    text-align: center;
+} */

@@ -3,7 +3,7 @@
     <view class="field-form">
         <van-cell-group>
             <van-field class="field" model:value="{{ name }}"  required focus="true" adjust-position label="姓名:" placeholder="请输入姓名" title-width="4.2em" />
-            <van-field class="field" model:value="{{ id }}" error-message="{{errorId}}" bind:change="onChangeId" required adjust-position label="身份证:" placeholder="请输入身份证号" maxlength="18" title-width="4.2em" />
+            <van-field class="field" type ="idcard" model:value="{{ id }}" error-message="{{errorId}}" bind:change="onChangeId" required adjust-position label="身份证:" placeholder="请输入身份证号" maxlength="18" title-width="4.2em" />
             <van-field class="field" model:value="{{ phone }}" error-message="{{errorPhone}}" bind:change="onChangePhone" required adjust-position label="手机:" placeholder="请输入手机号" title-width="4.2em" />
             <van-radio-group model:value="{{ sex }}" bind:change="onChange" direction="horizontal">
                 <text class="radio-text" > 性别:</text>

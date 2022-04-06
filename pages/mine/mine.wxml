@@ -4,7 +4,7 @@
         <image class="jiankangka" src="/static/jiankangka.png"></image>
     </view>
     <text wx:if="{{isLogin}}"  class = "bg-text" >{{userInfo.name}}\n\n{{userInfo.id}}</text>
-    <text wx:else="{{isLogin}}" class = "bg-text" data-url="/pages/user/info" bindtap="navigateTo">未登记(点击完善信息)</text>
+    <text wx:else="{{isLogin}}" class = "bg-text" data-url="/pages/mine/userInfo" bindtap="navigateTo">未登记(点击完善信息)</text>
 </view>
 
 <!-- 横向图标 -->
@@ -19,7 +19,7 @@
                 <text> \n我的订单 </text>
             </view>
             <view class="text-center">
-                <image class="coll-img" src="/static/zuji.png"></image>
+                <image class="coll-img" src="/static/zuji.png" data-url="/pages/pay/unpay-list" bindtap="navigateTo"></image>
                 <text> \n我的缴费 </text>
             </view>
         </view>
@@ -27,11 +27,14 @@
 
 <!-- 列表 -->
 <view class="width100 height400">
-    <view class="details" data-url="/pages/user/info" bindtap="navigateTo">
+    <view class="details" data-url="/pages/mine/userInfo" bindtap="navigateTo">
         <text>我的信息</text>
     </view>
-    <view class="details">
+    <view class="details" data-url="/pages/register/register-list" bindtap="navigateTo">
         <text>挂号记录</text>
+    </view>
+    <view class="details" data-url="/pages/pay/pay-list" bindtap="navigateTo">
+        <text>缴费记录</text>
     </view>
     <view class="details" bindtap="logout">
         <text class="color-red">注销信息</text>

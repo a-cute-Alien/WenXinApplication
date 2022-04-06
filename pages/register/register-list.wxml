@@ -1,6 +1,17 @@
 <!--pages/register/list.wxml-->
+<wxs src = "../../utils/format.wxs" module="format"/>
 <view class="list-container">
-    <van-cell-group wx:for="{{registers}}" wx:key="{{item.registerId}}" inset class="list-group">
-        <van-cell center  title="{{item.doctorName}}" value="{{item.status}}" label="预约时间:{{item.date}}" border="{{ true }}" />
+    <van-cell-group wx:for="{{registerList}}" wx:key="{{item.registerId}}" inset class="list-group">
+        <van-cell center title-width="380rpx" 
+        clickable ="true"
+        ink-type = "redirectTo"
+        url = "{{item.status == 0 ?'/pages/pay/unpay-list':''}}"
+        title="{{item.sysArrange.sysUser.dept.deptName}}\n{{item.sysArrange.sysUser.nickName}}" 
+        label="预约时间 : {{item.sysArrange.arrangeDate}}  {{item.sysArrange.period}}:00" border="{{ true }}">
+            <view slot="">
+                <van-tag type="{{ item.status == 2 ? 'success':'danger'}}">{{format.formatRegisterStatus(item.status)}}</van-tag>
+            </view>
+        </van-cell>
     </van-cell-group>
 </view>
+<van-dialog id="van-dialog" /> 

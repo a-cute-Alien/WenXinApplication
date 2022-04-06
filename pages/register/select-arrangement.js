@@ -30,42 +30,10 @@ Page({
    */
   onLoad: function (options) {
     //初始化选择器高度
-    this.setData({winHight: wx.getSystemInfoSync().windowHeight})
-    var that = this;
-    //初始化部门
-    let cookie = app.getToken();
-    wx.request({
-      url: 'http://127.0.0.1/dep/list',
-      method:'Post',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'cookie': cookie
-      },
-      success: function (res) {
-        if(res.statusCode==200&&res.data!=null)     
-        console.log(res.data[0].children);
-        res.data[0].children.forEach(element=>{
-          element.id = element.deptId;
-          element.text = element.deptName;
-          element.children.forEach(e=>{
-            e.id = e.deptId;
-            e.text = e.deptName;
-          })
-        })
-        that.setData({
-          'depts':res.data[0].children
-        });
-      },
-      fail: function (res) {
-        Dialog.alert({
-          title: '提示',
-          message: '网络繁忙,稍后再试',
-        }).then(() => {
-          // on close
-          wx.navigateBack();
-        });
-      }
-    })
+    this.setData({
+      winHight: wx.getSystemInfoSync().windowHeight
+    });
+    this.handleDeptList();
   },
 
   /**
@@ -116,36 +84,87 @@ Page({
   onShareAppMessage: function () {
 
   },
-    //显示日期选择框
-    showCalendar() {
-      this.setData({show: true});
-    },
-    //关闭日期选择框
-    closeCalendar() {
-      this.setData({show: false});
-    },
+  //显示日期选择框
+  showCalendar() {
+    this.setData({
+      show: true
+    });
+  },
+  //关闭日期选择框
+  closeCalendar() {
+    this.setData({
+      show: false
+    });
+  },
 
-    //跳转到医生的预约安排查询页面
-    toArrangement(event) {
-      this.setData({currentDate: event.detail,});
-      this.onClose();
-      let id = this.data.activeId;
-      let date = this.data.currentDate;
-      wx.navigateTo({
-        url: '/pages/register/register?id=' + id + '&date=' + date,
-      })
-    },
-    /**
-     * 选择一级部门
-     */
-    onClickNav({detail = {}}) {
-      this.setData({mainActiveIndex: detail.index || 0,});
-    },
-    /**
-     * 选择具体部门
-     */
-    onClickItem({detail = {}}) {
-      this.setData({activeId:detail.id});
-      this.showCalendar();
-    },
+  //跳转到医生的预约安排查询页面
+  toArrangement(event) {
+    this.setData({
+      currentDate: event.detail,
+    });
+    this.closeCalendar();
+    let id = this.data.activeId;
+    let date = this.data.currentDate;
+    wx.navigateTo({
+      url: '/pages/register/arrange-list?id=' + id + '&date=' + date,
+    })
+  },
+  /**
+   * 选择一级部门
+   */
+  onClickNav({
+    detail = {}
+  }) {
+    this.setData({
+      mainActiveIndex: detail.index || 0,
+    });
+  },
+  /**
+   * 选择具体部门
+   */
+  onClickItem({
+    detail = {}
+  }) {
+    this.setData({
+      activeId: detail.id
+    });
+    this.showCalendar();
+  },
+  //初始化部门数据
+  handleDeptList(){
+    var that = this;
+    let cookie = app.getToken();
+    wx.request({
+      url: 'http://127.0.0.1/dept/list',
+      method: 'Post',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'cookie': cookie
+      },
+      success: function (res) {
+        if (res.statusCode == 200 && res.data != null)
+          console.log(res.data[0].children);
+        res.data[0].children.forEach(element => {
+          element.id = element.deptId;
+          element.text = element.deptName;
+          element.children.forEach(e => {
+            e.id = e.deptId;
+            e.text = e.deptName;
+          })
+        })
+        that.setData({
+          'depts': res.data[0].children
+        });
+      },
+      fail: function (res) {
+        Dialog.alert({
+          title: '提示',
+          message: '网络繁忙,稍后再试',
+        }).then(() => {
+          // on close
+          wx.navigateBack();
+        });
+      }
+    })
+  }
 })

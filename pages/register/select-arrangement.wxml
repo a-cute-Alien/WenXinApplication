@@ -7,3 +7,4 @@
     <van-datetime-picker type="date" value="{{ currentDate }}" bind:confirm="toArrangement" bind:cancel="closeCalendar" min-date="{{ minDate }}" formatter="{{ formatter }}" />
   </van-popup>
 </view>
+<van-dialog id="van-dialog" />

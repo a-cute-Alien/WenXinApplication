@@ -1,4 +1,4 @@
-/* pages/register/list.wxss */
+/* pages/pay/pay-list.wxss */
 page{
     background-color: #eeeeee;
 }

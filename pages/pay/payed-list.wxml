@@ -1,0 +1,17 @@
+<!--pages/pay/pay-list.wxml-->
+<wxs src = "../../utils/format.wxs" module="format"/>
+<view class="list-container">
+    <van-cell-group wx:for="{{payedList}}" wx:key="{{payId}}" inset class="list-group">
+        <van-cell center title-width="380rpx" 
+        clickable ="true"
+        label="{{item.direction}}" border="{{ true }}">
+        <view slot="title">
+            <view>{{item.title}} : <text class="color-red">{{item.money}} ¥</text></view>
+        </view>
+            <view slot="">
+                <van-tag type="{{ item.status == 1 ? 'success':'danger'}}">{{format.formatPayStatus(item.status)}}</van-tag>
+            </view>
+        </van-cell>
+    </van-cell-group>
+</view>
+<van-dialog id="van-dialog" />

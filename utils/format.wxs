@@ -1,0 +1,28 @@
+var formatRegisterStatus = function(status) {
+    var value = "已取消";
+    switch (status) {
+        case '0':
+            value = "待付款";break;
+        case '1':
+            value = "待诊断";break;
+        case '2':
+            value = "已完成";break;
+        default:
+            break;
+    }
+    return value;
+}
+var formatPayStatus = function(status) {
+    var value = "已取消";
+    switch (status) {
+        case '0':
+            value = "待付款";break;
+        case '1':
+            value = "已缴费";break;
+        default:
+            break;
+    }
+    return value;
+}
+module.exports.formatRegisterStatus = formatRegisterStatus;
+module.exports.formatPayStatus = formatPayStatus;

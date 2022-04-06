@@ -1,0 +1,14 @@
+<!--pages/pay/pay-list.wxml-->
+
+<view>
+    <van-checkbox-group value="{{ checkList}}" bind:change="onSelect">
+        <view wx:for="{{unpayList}}" wx:key="payId" wx:for-item="unpay" class="d-row d-ai-centen margin-bottom-10 margin-top-10">
+            <van-checkbox name="{{index}}" data-index="{{index}}"  />
+            <van-card price="{{unpay.money}}" title="{{unpay.title}}" desc="{{unpay.direction}}" thumb="{{ unpay.sysUser.avatar}}"></van-card>
+        </view>
+    </van-checkbox-group>
+
+    <van-submit-bar price="{{ totalPrice }}" button-text="缴纳" bind:submit="onClickButton" tip="{{ true }}">
+        <van-checkbox value="{{ allChecked }}" bind:change="onSelectAll">全选</van-checkbox>
+    </van-submit-bar>
+</view>

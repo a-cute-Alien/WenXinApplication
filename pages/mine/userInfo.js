@@ -236,7 +236,7 @@ Page({
             success: function (res) {
                 console.log(res);
                 if (res.statusCode == 200 && res.data.name != null && res.data.id != null) {
-                    res.data.id = res.data.id.replace(/^(.{6})(?:\d+)(.{4})$/, "$1********$2");
+                    // res.data.id = res.data.id.replace(/^(.{6})(?:\d+)(.{4})$/, "$1********$2");
                     that.setData({
                         name: res.data.name,
                         id: res.data.id,

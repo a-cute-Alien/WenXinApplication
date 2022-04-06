@@ -1,0 +1,18 @@
+<!--pages/register/register.wxml-->
+
+<van-collapse accordion value="{{ activeName }}" bind:change="onChange" bind:open="handleGetArrangeList">
+<view wx:for="{{doctorList}}" wx:key="userId" wx:for-item="doctor" wx:for-index="arrange_index" class="d-row d-ai-centen">
+    <image src="{{doctor.avatar}}" style="height: 100rpx; width: 10%; margin-left: 10px;"></image>
+    <van-collapse-item  title="{{doctor.nickName}}" name="{{arrange_index}}" size="large" class="width90">
+        <view class="list-container">
+            <view wx:for="{{doctor.arrangeList}}" wx:key="arrangeId" wx:for-item="arrange" wx:for-index="arrange_index" class="list-item" data-arrangeId = "{{arrange.arrangeId}}" bindtap="handleRegister" >
+            时间段:{{arrange.arrangeDate}}-{{arrange.period}}:00  剩余预约数:<text style="color: red;">{{arrange.count}}</text>
+            </view>
+        </view>
+    </van-collapse-item>
+</view>
+
+</van-collapse>
+<van-dialog id="van-dialog" />
+
+

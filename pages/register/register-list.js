@@ -1,22 +1,24 @@
 // pages/register/list.js
+import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
 var util = require('../../utils/util')
+const app = getApp();
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        registers: [],
+        registerList: [],
     },
     format(status) {
         var value = "error";
         switch (status) {
-            case 0:
+            case '0':
                 value = "待付款";break;
-            case 1:
+            case '1':
                 value = "待诊断";break;
-            case 2:
+            case '2':
                 value = "已完成";break;
             default:
                 break;
@@ -32,22 +34,22 @@ Page({
             forbidClick: true,
           });
         var that = this;
-        let cookie = wx.getStorageSync('uuid');
+        let cookie = app.getToken();
         wx.request({
-            url: 'http://127.0.0.1/register/user/all',
-            method: 'Get',
+            url: 'http://127.0.0.1/register/list',
+            method: 'Post',
             header: {
                 'content-type': 'application/x-www-form-urlencoded',
                 'cookie': cookie
             },
             success(res) {
+                console.log(res);
                 if (res.statusCode == 200 && res.data.length > 0) {
-                    res.data.forEach(element => {
-                        element.status = that.format(element.status);
-                        element.date =  util.formatDate(element.date,"YY-MM-DD");
-                    });
+                    // res.data.forEach(element => {
+                    //     element.status = that.format(element.status);
+                    // });
                     that.setData({
-                        registers: res.data
+                        registerList: res.data
                     });
                 } else {
                     Dialog.alert({

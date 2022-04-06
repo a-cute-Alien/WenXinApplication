@@ -1,12 +1,15 @@
 {
     "pages": [
-        
+        "pages/pay/payInfo",
+        "pages/pay/payed-list",
         "pages/index/index",
         "pages/mine/mine",
         "pages/mine/userInfo",
         "pages/register/select-arrangement",
-        "pages/register/arrangement",
-        "pages/register/register-list"
+        "pages/register/arrange-list",
+        "pages/register/register-list",
+        "pages/pay/unpay-list"
+        
     ],
     "permission": {
         "scope.userLocation": {
@@ -54,6 +57,13 @@
         "van-button": "@vant/weapp/button/index",
         "van-toast": "@vant/weapp/toast/index",
         "van-cell": "@vant/weapp/cell/index",
-        "van-cell-group": "@vant/weapp/cell-group/index"
+        "van-cell-group": "@vant/weapp/cell-group/index",
+        "van-submit-bar": "@vant/weapp/submit-bar/index",
+        "van-checkbox": "@vant/weapp/checkbox/index",
+        "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+        "van-card": "@vant/weapp/card/index",
+        "van-tag": "@vant/weapp/tag/index",
+        "van-rate": "@vant/weapp/rate/index",
+        "van-divider": "@vant/weapp/divider/index"
     }
 }
