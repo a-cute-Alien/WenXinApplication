@@ -10,58 +10,18 @@ Page({
      */
     data: {
         registerList: [],
+        status:"-1"
     },
-    format(status) {
-        var value = "error";
-        switch (status) {
-            case '0':
-                value = "待付款";break;
-            case '1':
-                value = "待诊断";break;
-            case '2':
-                value = "已完成";break;
-            default:
-                break;
-        }
-        return value;
-    },
+    
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        Toast.loading({
-            message: '查询中...',
-            forbidClick: true,
-          });
-        var that = this;
-        let cookie = app.getToken();
-        wx.request({
-            url: 'http://127.0.0.1/register/list',
-            method: 'Post',
-            header: {
-                'content-type': 'application/x-www-form-urlencoded',
-                'cookie': cookie
-            },
-            success(res) {
-                console.log(res);
-                if (res.statusCode == 200 && res.data.length > 0) {
-                    // res.data.forEach(element => {
-                    //     element.status = that.format(element.status);
-                    // });
-                    that.setData({
-                        registerList: res.data
-                    });
-                } else {
-                    Dialog.alert({
-                        title: '提示',
-                        message: '暂无记录或网络异常,请稍后再试',
-                    }).then(() => {
-                        // 刷新记录
-                        wx.navigateBack();
-                    });
-                }
-            }
-        })
+        console.log(options);
+        if(options.status!=null){
+            this.setData({status:options.status})
+        }
+        this.handleRegisterList();
     },
 
     /**
@@ -89,7 +49,7 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-
+       
     },
 
     /**
@@ -111,5 +71,40 @@ Page({
      */
     onShareAppMessage: function () {
 
-    }
+    },
+    handleRegisterList(){
+        Toast.loading({
+            message: '查询中...',
+            forbidClick: true,
+          });
+        var that = this;
+        let cookie = app.getToken();
+        wx.request({
+            url: 'http://127.0.0.1/register/list',
+            method: 'Post',
+            data:{
+                status:this.data.status
+            },
+            header: {
+                'content-type': 'application/x-www-form-urlencoded',
+                'cookie': cookie
+            },
+            success(res) {
+                console.log(res);
+                if (res.statusCode == 200 && res.data.length > 0) {
+                    that.setData({
+                        registerList: res.data
+                    });
+                } else {
+                    Dialog.alert({
+                        title: '提示',
+                        message: '暂无记录或网络异常,请稍后再试',
+                    }).then(() => {
+                        // 刷新记录
+                        wx.navigateBack();
+                    });
+                }
+            }
+        })
+    },
 })

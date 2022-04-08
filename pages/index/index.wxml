@@ -26,17 +26,23 @@
     </view>
     <view class="width90 d-f-wrap d-row d-jc-between margin-center padding-top-10 text-center">
         <view class='play-title d-clo d-ai-centen {{ selected == 1 ? "selected":" "}}'
-         data-url="/pages/register/select-arrangement" 
+         data-url="/pages/register/select-arrange" 
          data-id="1"
          bindtap="navigateTo">
             <image class="icon2" src="/static/icon/guahao.png"></image>
             <text class="font34">预约挂号</text>
         </view>
-        <view class="play-title d-clo d-ai-centen">
+        <view class="play-title d-clo d-ai-centen {{ selected == 2 ? 'selected':''}}"
+        data-url="/pages/register/register-list?status=1"
+        data-id="2"
+        bindtap="navigateTo">
             <image class="icon2" src="/static/icon/paidui.png"></image>
             <text class="font34">排队查询</text>
         </view>
-        <view class="play-title d-clo d-ai-centen">
+        <view class="play-title d-clo d-ai-centen {{ selected == 3 ? 'selected':''}}"
+        data-url="/pages/pay/unpay-list"
+        data-id="3"
+        bindtap="navigateTo">
             <image class="icon2" src="/static/icon/jiaofei1.png"></image>
             <text class="font34">门诊缴费</text>
         </view>
@@ -51,22 +57,32 @@
         <view class="font40 margin-top-10">住院</view>
     </view>
     <view class="width90 d-f-wrap d-row d-jc-between margin-center padding-top-10 text-center">
-        <view class="play-title d-clo d-ai-centen">
-            <image class="icon2" src="/static/icon/chaxun.png"></image>
-            <text class="font34">床位查询</text>
-        </view>
-        <view class="play-title d-clo d-ai-centen">
+        <view class="play-title d-clo d-ai-centen {{ selected == 4 ? 'selected':''}}"
+        data-url="/pages/apply/select-doctor"
+        data-id="4"
+        bindtap="navigateTo">
             <image class="icon2" src="/static/icon/zhuyuan.png"></image>
             <text class="font34">住院申请</text>
+        </view>
+        <view class="play-title d-clo d-ai-centen {{ selected == 5 ? 'selected':''}}"
+        data-url="/pages/apply/apply-list?status=0"
+        data-id="5"
+        bindtap="navigateTo">
+            <image class="icon2" src="/static/icon/chaxun.png"></image>
+            <text class="font34">申请查询</text>
         </view>
         <view class="play-title d-clo d-ai-centen">
             <image class="icon2" src="/static/icon/jiaofei1.png"></image>
             <text class="font34">住院缴费</text>
         </view>
-        <view class="play-title d-clo d-ai-centen">
+        <view class="play-title d-clo d-ai-centen {{ selected == 6 ? 'selected':''}}"
+        data-url="/pages/report/report-list"
+        data-id="6"
+        bindtap="navigateTo">
             <image class="icon2" src="/static/icon/baogao.png"></image>
             <text class="font34">住院报告</text>
         </view>
+
         <view class="play-title d-clo d-ai-centen">
             <image class="icon2" src="/static/icon/tijian.png"></image>
             <text class="font34 gray3">体检申请</text>

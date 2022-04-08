@@ -1,4 +1,6 @@
-// pages/pay/pay-list.js
+// pages/apply/apply-list.js
+import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
 const app = getApp();
 Page({
 
@@ -6,17 +8,19 @@ Page({
      * 页面的初始数据
      */
     data: {
-        unpayList: [],
-        checkList: [],
-        allChecked: false,
-        totalPrice: 0,
+        applyList:[],
+        status:"-1"
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.handleGetUnpayList();
+        console.log(options);
+        if(options.status!=null){
+            this.setData({status:options.status})
+        }
+        this.handleApplyList();
     },
 
     /**
@@ -67,60 +71,19 @@ Page({
     onShareAppMessage: function () {
 
     },
-    /**
-     * 全选
-     */
-    onSelectAll() {
-        if(this.data.allChecked==false){
-            let selectList = [];
-            for (let i = 0; i < this.data.unpayList.length; i++) {
-                selectList.push(i+"");
-            }
-            this.setData({
-                checkList: selectList,
-                allChecked:true
-            });
-        }else{
-            this.setData({
-                checkList: [],
-                allChecked:false
-            });
-        }
-        this.computeTotalPrice();
-    },
-    computeTotalPrice(){
-        let sum = 0;
-        for (let i = 0; i < this.data.checkList.length; i++) {
-            sum+=this.data.unpayList[this.data.checkList[i]].money;
-        }
-        this.setData({
-            totalPrice:sum*100
-        });
-    },
-    /**
-     * 单选
-     */
-    onSelect(event) {
-        console.log(event);
-        this.setData({
-            checkList: event.detail,
-        });
-        if (this.data.checkList.length == this.data.unpayList.length) {
-            this.setData({
-                allChecked: true,
-            });
-        }
-        this.computeTotalPrice();
-    },
-    /**
-     * 获取未缴费列表
-     */
-    handleGetUnpayList() {
+    handleApplyList(){
+        Toast.loading({
+            message: '查询中...',
+            forbidClick: true,
+          });
         var that = this;
         let cookie = app.getToken();
         wx.request({
-            url: 'http://127.0.0.1/pay/unpay/list',
+            url: 'http://127.0.0.1/apply/list',
             method: 'Post',
+            data:{
+                status:this.data.status
+            },
             header: {
                 'content-type': 'application/x-www-form-urlencoded',
                 'cookie': cookie
@@ -129,7 +92,7 @@ Page({
                 console.log(res);
                 if (res.statusCode == 200 && res.data.length > 0) {
                     that.setData({
-                        unpayList: res.data
+                        applyList: res.data
                     });
                 } else {
                     Dialog.alert({
@@ -143,13 +106,5 @@ Page({
             }
         })
     },
-    handlePay(){
-        wx.requestPayment({
-          nonceStr: 'nonceStr',
-          package: 'package',
-          paySign: 'MD5',
-          signType:"MD5",
-          timeStamp: new Date().getTime()+'',
-        })
-    }
+    
 })

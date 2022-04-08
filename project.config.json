@@ -47,7 +47,7 @@
         "ignoreUploadUnusedFiles": true
     },
     "compileType": "miniprogram",
-    "libVersion": "2.22.0",
+    "libVersion": "2.23.3",
     "appid": "wx33e510d5d4245306",
     "projectname": "wx-applet-master",
     "debugOptions": {

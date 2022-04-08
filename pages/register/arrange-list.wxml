@@ -14,5 +14,6 @@
 
 </van-collapse>
 <van-dialog id="van-dialog" />
+<van-toast id="van-toast" />
 
 

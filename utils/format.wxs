@@ -24,5 +24,20 @@ var formatPayStatus = function(status) {
     }
     return value;
 }
+var formatApplyStatus = function(status) {
+    var value = "已取消";
+    switch (status) {
+        case '0':
+            value = "待审核";break;
+        case '1':
+            value = "待缴费";break;
+        case '2':
+            value = "已完成";break;
+        default:
+            break;
+    }
+    return value;
+}
 module.exports.formatRegisterStatus = formatRegisterStatus;
 module.exports.formatPayStatus = formatPayStatus;
+module.exports.formatApplyStatus = formatApplyStatus;

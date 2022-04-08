@@ -20,20 +20,23 @@
             </view>
             <view class="text-center">
                 <image class="coll-img" src="/static/zuji.png" data-url="/pages/pay/unpay-list" bindtap="navigateTo"></image>
-                <text> \n我的缴费 </text>
+                <text> \n待缴费 </text>
             </view>
         </view>
 </view>
 
 <!-- 列表 -->
 <view class="width100 height400">
-    <view class="details" data-url="/pages/mine/userInfo" bindtap="navigateTo">
+    <view class="details" data-url="/pages/mine/user-info" bindtap="navigateTo">
         <text>我的信息</text>
     </view>
-    <view class="details" data-url="/pages/register/register-list" bindtap="navigateTo">
+    <view class="details" data-url="/pages/apply/apply-list?" bindtap="navigateTo">
+        <text>申请记录</text>
+    </view>
+    <view class="details" data-url="/pages/register/register-list?status=-1" bindtap="navigateTo">
         <text>挂号记录</text>
     </view>
-    <view class="details" data-url="/pages/pay/pay-list" bindtap="navigateTo">
+    <view class="details" data-url="/pages/pay/payed-list" bindtap="navigateTo">
         <text>缴费记录</text>
     </view>
     <view class="details" bindtap="logout">

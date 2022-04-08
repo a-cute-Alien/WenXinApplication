@@ -1,0 +1,12 @@
+/* pages/apply/apply-list.wxss */
+page{
+    background-color: #eeeeee;
+}
+.list-container{
+    margin-top: 20rpx;
+    border-radius: 30rpx;
+    width: 100%;
+}
+.list-group{
+    width: 100%;
+}

@@ -1,4 +1,6 @@
-// pages/pay/pay-list.js
+// pages/hospital/report-list.js
+import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
 const app = getApp();
 Page({
 
@@ -6,17 +8,14 @@ Page({
      * 页面的初始数据
      */
     data: {
-        unpayList: [],
-        checkList: [],
-        allChecked: false,
-        totalPrice: 0,
+        reportList:[]
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.handleGetUnpayList();
+        this.handleGetReportList();
     },
 
     /**
@@ -67,59 +66,14 @@ Page({
     onShareAppMessage: function () {
 
     },
-    /**
-     * 全选
+        /**
+     * 获取缴费记录
      */
-    onSelectAll() {
-        if(this.data.allChecked==false){
-            let selectList = [];
-            for (let i = 0; i < this.data.unpayList.length; i++) {
-                selectList.push(i+"");
-            }
-            this.setData({
-                checkList: selectList,
-                allChecked:true
-            });
-        }else{
-            this.setData({
-                checkList: [],
-                allChecked:false
-            });
-        }
-        this.computeTotalPrice();
-    },
-    computeTotalPrice(){
-        let sum = 0;
-        for (let i = 0; i < this.data.checkList.length; i++) {
-            sum+=this.data.unpayList[this.data.checkList[i]].money;
-        }
-        this.setData({
-            totalPrice:sum*100
-        });
-    },
-    /**
-     * 单选
-     */
-    onSelect(event) {
-        console.log(event);
-        this.setData({
-            checkList: event.detail,
-        });
-        if (this.data.checkList.length == this.data.unpayList.length) {
-            this.setData({
-                allChecked: true,
-            });
-        }
-        this.computeTotalPrice();
-    },
-    /**
-     * 获取未缴费列表
-     */
-    handleGetUnpayList() {
+    handleGetReportList() {
         var that = this;
         let cookie = app.getToken();
         wx.request({
-            url: 'http://127.0.0.1/pay/unpay/list',
+            url: 'http://127.0.0.1/report/list',
             method: 'Post',
             header: {
                 'content-type': 'application/x-www-form-urlencoded',
@@ -129,7 +83,7 @@ Page({
                 console.log(res);
                 if (res.statusCode == 200 && res.data.length > 0) {
                     that.setData({
-                        unpayList: res.data
+                        reportList: res.data
                     });
                 } else {
                     Dialog.alert({
@@ -143,13 +97,11 @@ Page({
             }
         })
     },
-    handlePay(){
-        wx.requestPayment({
-          nonceStr: 'nonceStr',
-          package: 'package',
-          paySign: 'MD5',
-          signType:"MD5",
-          timeStamp: new Date().getTime()+'',
-        })
+    onGetReportInfo(e){
+        let reportId = e.currentTarget.dataset.reportid;
+        console.log(e);
+        wx.navigateTo({
+          url: '/pages/report/report-info?reportId='+reportId,
+        });
     }
 })

@@ -1,5 +1,5 @@
 <!--pages/pay/payInfo.wxml-->
-<view>
+<view class="container-box">
     <van-cell-group>
         <van-field 
         value="{{payInfo.sysUser.nickName}}"

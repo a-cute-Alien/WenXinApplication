@@ -1,0 +1,36 @@
+<!--pages/hospital/report.wxml-->
+<view class="container-box">
+    <van-cell-group>
+        <van-field 
+        value="{{reportInfo.sysUser.nickName}}"
+        label="医生:" 
+        readonly
+        border="{{ true }}" />
+        <van-field 
+        value="{{reportInfo.title}}"
+        label="标题:" 
+        readonly
+        border="{{ true }}" />
+        <van-field 
+        value="{{reportInfo.createTime}}"
+        label="时间:" 
+        readonly
+        border="{{ true }}" />
+        <van-field 
+        value=""
+        label="详情:" 
+        readonly
+        border="{{ false }}" />
+        <van-field 
+        value="{{reportInfo.content}}"
+        label=" " 
+        type="textarea"
+        autosize
+        readonly
+        border="{{ true }}" />
+    </van-cell-group>
+    <view class="d-row d-ai-centen d-jc-centen padding-top-40">
+        <van-rate value="{{ value }}" bind:change="onChange" />
+    </view>
+</view>
+<van-divider dashed contentPosition="center">本数据仅供参考，一切以医院文件为准</van-divider>

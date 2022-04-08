@@ -1,4 +1,4 @@
-// pages/pay/pay-list.js
+// pages/hospital/report.js
 import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
 const app = getApp();
@@ -8,14 +8,18 @@ Page({
      * 页面的初始数据
      */
     data: {
-        payecList: [],
+        reportId:1,
+        reportInfo:{}
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.handleGetPayedList();
+        if(options.reportId!=null){
+            this.setData({reportId:options.reportId})
+        }
+        this.handleGetReportInfo();
     },
 
     /**
@@ -50,7 +54,7 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-        this.onLoad();
+
     },
 
     /**
@@ -66,24 +70,24 @@ Page({
     onShareAppMessage: function () {
 
     },
-    /**
-     * 获取报告记录
-     */
-    handleGetPayedList() {
+    handleGetReportInfo(){
         var that = this;
         let cookie = app.getToken();
         wx.request({
-            url: 'http://127.0.0.1/pay/payed/list',
+            url: 'http://127.0.0.1/report/info',
             method: 'Post',
+            data:{
+                'reportId':this.data.reportId
+            },
             header: {
                 'content-type': 'application/x-www-form-urlencoded',
                 'cookie': cookie
             },
             success(res) {
                 console.log(res);
-                if (res.statusCode == 200 && res.data.length > 0) {
+                if (res.statusCode == 200 && res.data!=null) {
                     that.setData({
-                        payedList: res.data
+                        reportInfo: res.data
                     });
                 } else {
                     Dialog.alert({
@@ -96,12 +100,5 @@ Page({
                 }
             }
         })
-    },
-    onGetPayInfo(e){
-        let payId = e.currentTarget.dataset.payid;
-        console.log(e);
-        wx.navigateTo({
-          url: '/pages/pay/pay-info?payId='+payId,
-        });
     }
 })

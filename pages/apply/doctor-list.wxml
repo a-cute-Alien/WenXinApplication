@@ -1,0 +1,19 @@
+<!--pages/apply/doctor-list.wxml-->
+<wxs src = "../../utils/format.wxs" module="format"/>
+<view class="list-container">
+    <van-cell-group wx:for="{{doctorList}}" wx:key="{{item.userId}}" inset class="list-group">
+        <van-cell center title-width="380rpx"
+        data-userId="{{item.userId}}" 
+        bindtap="handleApply"
+        clickable ="true"
+        use-label-slot="true"
+        border="{{ true }}">
+        <view slot="title" class="d-row d-ai-centen">
+            <image src="{{item.avatar}}" style="height: 100rpx; width: 100rpx; margin-left: 10px;"></image>
+            <text>{{item.nickName}}</text>
+        </view>
+        </van-cell>
+    </van-cell-group>
+</view>
+<van-dialog id="van-dialog" /> 
+<van-toast id="van-toast" duration="3000"/>

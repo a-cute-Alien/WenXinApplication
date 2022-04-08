@@ -1,0 +1,10 @@
+/* pages/hospital/report.wxss */
+page{
+    background-color: #eeeeee;
+}
+.container-box{
+    background-color: #ffffff;
+    margin-bottom: 30rpx;
+    border-radius: 0 0 30rpx 30rpx;
+    padding: 30rpx 0 30rpx 0;
+}

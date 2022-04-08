@@ -1,0 +1,18 @@
+<!--pages/hospital/report-list.wxml-->
+<view class="list-container">
+    <van-cell-group wx:for="{{reportList}}" wx:key="{{item.reportId}}" inset class="list-group">
+        <van-cell center title-width="380rpx" 
+        bindtap="onGetReportInfo"
+        data-reportId="{{item.reportId}}"
+        clickable ="true"
+        label="标题:{{item.title}}" border="{{ true }}">
+        <view slot="title">
+            <view>{{item.sysUser.dept.deptName}} : <text class="color-red">{{item.sysUser.nickName}}</text></view>
+        </view>
+            <view slot="">
+                <text>{{item.createTime}}</text>
+            </view>
+        </van-cell>
+    </van-cell-group>
+</view>
+<van-dialog id="van-dialog" />

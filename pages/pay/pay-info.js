@@ -8,6 +8,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        payId:-1,
         payInfo : {},
     },
 
@@ -15,7 +16,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.handleGetPayInfo(1);
+        if(options.payId!=null){
+            this.setData({payId:options.payId})
+        }
+        this.handleGetPayInfo();
     },
 
     /**
@@ -66,14 +70,14 @@ Page({
     onShareAppMessage: function () {
 
     },
-    handleGetPayInfo(payId){
+    handleGetPayInfo(){
         var that = this;
         let cookie = app.getToken();
         wx.request({
             url: 'http://127.0.0.1/pay/info',
             method: 'Post',
             data:{
-                'payId':payId
+                'payId':this.data.payId
             },
             header: {
                 'content-type': 'application/x-www-form-urlencoded',

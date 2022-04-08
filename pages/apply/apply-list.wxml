@@ -1,0 +1,20 @@
+<!--pages/apply/apply-list.wxml-->
+<wxs src = "../../utils/format.wxs" module="format"/>
+<view class="list-container">
+    <van-cell-group wx:for="{{applyList}}" wx:key="{{item.applyId}}" inset class="list-group">
+        <van-cell center title-width="380rpx" 
+        clickable ="true"
+        use-label-slot="true"
+        title="{{item.sysUser.dept.deptName}}\n医生:{{item.sysUser.nickName}}" 
+                border="{{ true }}">
+            <view slot="">
+                <van-tag type="{{ item.status == 3 ? 'success':'danger'}}">{{format.formatApplyStatus(item.status)}}</van-tag>
+            </view>
+            <view slot="label">
+                <view>床位 : {{item.bed}}</view>
+                <view>申请时间 : {{item.createTime}}</view>
+            </view>
+        </van-cell>
+    </van-cell-group>
+</view>
+<van-dialog id="van-dialog" /> 

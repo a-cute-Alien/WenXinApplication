@@ -1,4 +1,4 @@
-// pages/mine/userInfo.js
+// pages/apply/applyInfo.js
 Page({
 
     /**

@@ -1,15 +1,25 @@
 {
+    
     "pages": [
-        "pages/pay/payInfo",
-        "pages/pay/payed-list",
+        "pages/pay/unpay-list",
         "pages/index/index",
         "pages/mine/mine",
-        "pages/mine/userInfo",
-        "pages/register/select-arrangement",
+        "pages/mine/user-info",
+        "pages/register/select-arrange",
         "pages/register/arrange-list",
         "pages/register/register-list",
-        "pages/pay/unpay-list"
+
         
+        "pages/report/report-list",
+        "pages/report/report-info",
+        "pages/apply/apply-list",
+        "pages/pay/pay-info",
+
+        "pages/apply/doctor-list",
+        "pages/apply/select-doctor",
+        "pages/apply/apply-info",
+        
+        "pages/pay/payed-list"
     ],
     "permission": {
         "scope.userLocation": {
